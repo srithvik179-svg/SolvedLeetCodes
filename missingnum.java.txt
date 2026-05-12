@@ -1,0 +1,8 @@
+class missnumber {
+    public int missingNumber(int[] nums) {
+        int n=nums.length,as,es;
+        es=n*(n+1)/2;
+        as = Arrays.stream(nums).sum();
+        return es-as;
+    }
+}

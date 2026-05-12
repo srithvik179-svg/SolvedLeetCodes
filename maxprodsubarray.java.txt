@@ -1,0 +1,23 @@
+class maxprod {
+    public int maxProduct(int[] nums) {
+                int product=1,i=0,j=i,n=nums.length;
+               int max = Arrays.stream(nums).min().getAsInt();
+               if(n==1) return nums[0];
+               while(i<n){
+                
+                if(j<n){
+                product=product*nums[j];
+                if(product>max) max=product;
+                j++;
+                }
+                if(j==n){
+
+                    product=1;
+                     i++;
+                     j=i;
+                      }
+                      
+                }
+                return max;
+}
+}

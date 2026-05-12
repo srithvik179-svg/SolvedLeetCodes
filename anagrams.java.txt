@@ -1,0 +1,18 @@
+class anagrams {
+    public List<Integer> findAnagrams(String s, String p) {
+        List<Integer> result=new ArrayList<>();
+        int ns=s.length(),np=p.length();
+          if (np > ns) return result;
+        int[] sf=new int[26];
+        int[] pf=new int[26];
+        for(char ch:p.toCharArray()) pf[ch-'a']++;
+        for(char ch:s.substring(0,np).toCharArray()) sf[ch-'a']++;
+        if(Arrays.equals(sf,pf)) result.add(0);
+        for(int i=1;i<ns-np+1;i++){
+            sf[s.charAt(i-1)-'a']--;
+            sf[s.charAt(i+np-1)-'a']++;
+            if(Arrays.equals(sf,pf)) result.add(i);
+        } 
+          return result;
+    }
+}

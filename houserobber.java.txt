@@ -1,0 +1,20 @@
+class robber {
+    public int rob(int[] nums) {
+     int n=nums.length;
+     int[] tavl=new int[n];
+    Arrays.fill(tavl, -1);
+   int max= robr(nums,n-1,tavl);
+      return max;
+    }
+    private static int robr(int[] avl,int n,int[] tavl){
+        if(n<0) return 0;
+        if(n==0){
+            return tavl[0]=avl[0];
+            
+        }
+               if (tavl[n] != -1) return tavl[n]; 
+        int maxloot=Math.max(avl[n]+robr(avl,n-2,tavl),robr(avl,n-1,tavl)); tavl[n]=maxloot;
+    
+    return maxloot;
+}
+}
